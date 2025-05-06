@@ -8,5 +8,6 @@ public interface EmployeeService {
 
     Mono<EmployeeDto> saveEmployee(EmployeeDto employeeDto);
     Mono<EmployeeDto> getEmployee(String employeeId);
-    Flux<EmployeeDto> getAllEmployee();
+    Flux<EmployeeDto> getAllEmployees();
+
 }
