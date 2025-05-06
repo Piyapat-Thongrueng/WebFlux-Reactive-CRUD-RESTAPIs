@@ -60,4 +60,14 @@ public class EmployeeControllerIntegrationTests {
                 .jsonPath("$.lastName").isEqualTo(employeeDto.getLastName())
                 .jsonPath("$.email").isEqualTo(employeeDto.getEmail());
     }
+
+    @Test
+    public void testGetAllEmployees() {
+        webTestClient.get().uri("/api/employees")
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(EmployeeDto.class)
+                .consumeWith(System.out::println);
+    }
 }
